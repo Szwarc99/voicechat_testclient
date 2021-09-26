@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_5f249278c31c094e419caebdf38aec28" kind="dir">
+    <compoundname>C:/Users/Piotrek/source/repos/testClient/testClient</compoundname>
+    <innerdir refid="dir_b62887d617c78b85bbf78f7b09f2ec59">C:/Users/Piotrek/source/repos/testClient/testClient/Properties</innerdir>
+    <innerfile refid="_comm_protocol_8cs">CommProtocol.cs</innerfile>
+    <innerfile refid="_program_8cs">Program.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Piotrek/source/repos/testClient/testClient/"/>
+  </compounddef>
+</doxygen>

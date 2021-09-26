@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classtest_client_1_1_program" kind="class" prot="public">
+    <compoundname>testClient::Program</compoundname>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classtest_client_1_1_program_1a8dff0c22f9e2055310a66095dbc89131" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void testClient.Program.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Piotrek/source/repos/testClient/testClient/Program.cs" line="18" column="1" bodyfile="C:/Users/Piotrek/source/repos/testClient/testClient/Program.cs" bodystart="18" bodyend="286"/>
+        <references refid="classtest_client_1_1_comm_protocol_1add6f0af7132f17dea7ff3a545c6d70bb" compoundref="_comm_protocol_8cs" startline="16">testClient.CommProtocol.aes</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Piotrek/source/repos/testClient/testClient/Program.cs" line="17" column="1" bodyfile="C:/Users/Piotrek/source/repos/testClient/testClient/Program.cs" bodystart="16" bodyend="287"/>
+    <listofallmembers>
+      <member refid="classtest_client_1_1_program_1a8dff0c22f9e2055310a66095dbc89131" prot="private" virt="non-virtual"><scope>testClient::Program</scope><name>Main</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

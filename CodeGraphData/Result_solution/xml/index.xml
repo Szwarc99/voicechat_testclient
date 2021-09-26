@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="classtest_client_1_1_comm_protocol" kind="class"><name>testClient::CommProtocol</name>
+    <member refid="classtest_client_1_1_comm_protocol_1a965bd0510c9b209ccd3a05ee28adfa42" kind="variable"><name>stream</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1a4661a029004201e821ef968d18d1ddca" kind="variable"><name>rsa</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1add6f0af7132f17dea7ff3a545c6d70bb" kind="variable"><name>aes</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1a303d70d315cd1cd10fedbf75060ac69d" kind="function"><name>init</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1aeaf209948d9059eb8835f0154e1edf17" kind="function"><name>sendKey</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1aebdaf8267a08c6b2d2a4a2d9b5e52825" kind="function"><name>read</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1a8ba4805860f6f1de9ef501f4fc2c1698" kind="function"><name>write</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1a2acecaea1de037a99d846aa59fd15899" kind="function"><name>CheckMessage</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1a5b8b3e1d68fd3359c2439b15c143d0a1" kind="function"><name>Encrypt</name></member>
+    <member refid="classtest_client_1_1_comm_protocol_1ad544fd9fbbdff7a1cacc4b73fc79d548" kind="function"><name>Decrypt</name></member>
+  </compound>
+  <compound refid="classtest_client_1_1_program" kind="class"><name>testClient::Program</name>
+    <member refid="classtest_client_1_1_program_1a8dff0c22f9e2055310a66095dbc89131" kind="function"><name>Main</name></member>
+  </compound>
+  <compound refid="namespace_n_audio_1_1_wave" kind="namespace"><name>NAudio::Wave</name>
+  </compound>
+  <compound refid="namespace_n_audio_1_1_wave_1_1_sample_providers" kind="namespace"><name>NAudio::Wave::SampleProviders</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_diagnostics" kind="namespace"><name>System::Diagnostics</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net" kind="namespace"><name>System::Net</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net_1_1_sockets" kind="namespace"><name>System::Net::Sockets</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_compiler_services" kind="namespace"><name>System::Runtime::CompilerServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_security_1_1_cryptography" kind="namespace"><name>System::Security::Cryptography</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading" kind="namespace"><name>System::Threading</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespacetest_client" kind="namespace"><name>testClient</name>
+  </compound>
+  <compound refid="_comm_protocol_8cs" kind="file"><name>CommProtocol.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="dir_a265d1541c3d3dc03b6cafdab1cca54c" kind="dir"><name>C:/Users/Piotrek</name>
+  </compound>
+  <compound refid="dir_b62887d617c78b85bbf78f7b09f2ec59" kind="dir"><name>C:/Users/Piotrek/source/repos/testClient/testClient/Properties</name>
+  </compound>
+  <compound refid="dir_199df53a36619eeb9b639a2f2ba8ffdb" kind="dir"><name>C:/Users/Piotrek/source/repos</name>
+  </compound>
+  <compound refid="dir_61027cff22b94ecf65065d60140b6b79" kind="dir"><name>C:/Users/Piotrek/source</name>
+  </compound>
+  <compound refid="dir_5f249278c31c094e419caebdf38aec28" kind="dir"><name>C:/Users/Piotrek/source/repos/testClient/testClient</name>
+  </compound>
+  <compound refid="dir_f89fa9d308510d57639139d1fdec7177" kind="dir"><name>C:/Users/Piotrek/source/repos/testClient</name>
+  </compound>
+  <compound refid="dir_d522931ffa1371640980b621734a4381" kind="dir"><name>C:/Users</name>
+  </compound>
+</doxygenindex>
