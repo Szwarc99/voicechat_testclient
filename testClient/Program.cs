@@ -61,85 +61,15 @@ namespace testClient
             CommProtocol.write("jrm 0 user1 " + udpPort);
             Console.WriteLine(4);
 
-            var audioFilePath = "C:\\Users\\Piotrek\\Documents\\Audacity\\test2.wav";
-            var audioFilePath2 = "C:\\Users\\Piotrek\\Documents\\Audacity\\test.wav";
+            //wav file to be cut and played
+            var audioFilePath = "C:\\Users\\Piotrek\\Documents\\Audacity\\test2.wav";            
             var source = new AudioFileReader(audioFilePath);
 
-            //byte[] wav1 = File.ReadAllBytes(audioFilePath);
-            byte[] audio1 = new byte[320000];
-            //= wav1.Skip(44).ToArray();
-            source.ToWaveProvider16().Read(audio1, 0, 320000);
-            byte[] wav2 = File.ReadAllBytes(audioFilePath2);
-            byte[] audio2 = wav2.Skip(44).ToArray();
-
-            Console.WriteLine(audio1.Length);
-            Console.WriteLine(audio2.Length);
-
-
-            var ms = new MemoryStream(audio1);
-            var ms2 = new MemoryStream(audio2);
-
-            var rs = new RawSourceWaveStream(ms, new WaveFormat(16000, 16, 1));
-            var rs2 = new RawSourceWaveStream(ms2, new WaveFormat(16000, 16, 1));
-
-
-
-
-            var r = new Pcm32BitToSampleProvider(rs);
-            var r2 = new Pcm32BitToSampleProvider(rs2);
-            var mixer = new MixingSampleProvider(new[] { r, r2 });
-            var mem = new MemoryStream(new byte[20000000], true);
-
-            WaveFileWriter.WriteWavFileToStream(mem, mixer.ToWaveProvider16());
-            Console.WriteLine(mem.Length);
-
-            var outWave = new RawSourceWaveStream(mem, new WaveFormat(16000, 16, 1));
-
-            var mixed = new AudioFileReader("C:\\Users\\Piotrek\\Documents\\Audacity\\mixed.wav");
-
-            byte[] wav3 = File.ReadAllBytes("C:\\Users\\Piotrek\\Documents\\Audacity\\mixed.wav");
-            byte[] audio3 = wav3.Skip(44).ToArray();
-            var ms3 = new MemoryStream(audio3);
-            var rs3 = new RawSourceWaveStream(ms3, new WaveFormat(16000, 16, 1));
-
-            //var wo = new WaveOutEvent();
-            ////wo.Init(rs3);
-            //wo.Init(outWave);
-            //wo.Play();
-            //while (wo.PlaybackState == PlaybackState.Playing)
-            //{
-            //    Thread.Sleep(500);
-            //}
-            //wo.Dispose();
-
-
-            /*while (source.Length > 0)
-            {
-                var chunk = new OffsetSampleProvider(source);
-                
-                MemoryStream destination = new MemoryStream();
-                var wave = chunk.ToWaveProvider();
-                
-
-            }
-            var sampleFilePath = "C:\\Users\\Piotrek\\Documents\\Audacity\\";
-            int index = 0;
-            var startTime = TimeSpan.Zero;
-            while (index < 4)
-            {
-                
-                {
-                    source.CurrentTime = startTime; // jump forward to the position we want to start from
-                    WaveFileWriter.CreateWaveFile16(sampleFilePath + index +".wav", source.Take(TimeSpan.FromMilliseconds(1000)));
-                }
-                startTime = startTime.Add(TimeSpan.FromMilliseconds(1000));
-                index++;
-            }*/
-
-
-            //byte[] wavToBytes = System.IO.File.ReadAllBytes(audioFilePath);
-            //Console.WriteLine(Encoding.Default.GetString(wavToBytes));
-
+            
+            int framesToPlay = 30 * 32000;  // 30s
+            byte[] audio1 = new byte[framesToPlay];
+            
+            source.ToWaveProvider16().Read(audio1, 0, framesToPlay);           
 
 
             UdpClient udpClient = new UdpClient(udpPort);
@@ -191,6 +121,7 @@ namespace testClient
                 int counter2 = 0;
                 while (true)
                 {
+                    Console.WriteLine("Playback started");
                     for (int i = 0; i < bytes.Length; i += 320)
                     {
                         byte[] index = BitConverter.GetBytes(counter2++);
@@ -216,8 +147,7 @@ namespace testClient
                         long nextTime = counter * 10;
                         WinApi.TimeBeginPeriod(1);
                         while (stopwatch.ElapsedMilliseconds < nextTime)
-                        {
-                            //Thread.Yield();
+                        {                            
                             Thread.Sleep(1);
                         }
                         WinApi.TimeEndPeriod(1);
@@ -269,8 +199,10 @@ namespace testClient
                             targetFrame--;
                             avgTimeAhead -= 10.0;
                         }
-
-                        buffer[targetFrame] = audio;
+                        if (targetFrame >= playbackCounter)
+                        {
+                            buffer[targetFrame] = audio;
+                        }
                     }
                 }
             });
@@ -293,8 +225,7 @@ namespace testClient
                     WinApi.TimeBeginPeriod(1);
                     while (stopwatch.ElapsedMilliseconds < nextTime)
                     {
-                        Thread.Sleep(1);
-                        //Thread.Yield();
+                        Thread.Sleep(1);                        
                     }
                     //Console.WriteLine("woke up late by: " + (stopwatch.ElapsedMilliseconds - nextTime));
                     WinApi.TimeEndPeriod(1);
