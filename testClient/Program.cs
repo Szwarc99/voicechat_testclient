@@ -50,14 +50,15 @@ namespace testClient
                 CommProtocol.sendKey(CommProtocol.aes);
             }
             int udpPort = new Random().Next(9100, 9200);
+            CommProtocol.read();
             Console.WriteLine(udpPort);            
-            CommProtocol.write("con user3");
+            CommProtocol.write("con user" + udpPort);
             Console.WriteLine(2);
             Console.WriteLine(CommProtocol.read());
             CommProtocol.write("crm false ");
             Console.WriteLine(CommProtocol.read());
             Console.WriteLine(3);
-            CommProtocol.write("jrm 0 user3 " + udpPort);
+            CommProtocol.write("jrm 0 user"+udpPort + " " + udpPort);
             Console.WriteLine(4);
 
             //wav file to be cut and played
@@ -77,12 +78,16 @@ namespace testClient
 
             void SendUDP(byte[] bytes)
             {
-                udpClient.Send(bytes, bytes.Length);
+                Console.WriteLine("bytes " + bytes.Length);
+                var bytes2 = CommProtocol.EncryptUDP(bytes, CommProtocol.aes.Key, CommProtocol.aes.IV);
+                Console.WriteLine("bytes2 " + bytes2.Length);
+                udpClient.Send(bytes2, bytes2.Length);
             }
             byte[] ReceiveUDP()
             {
                 IPEndPoint ep = new IPEndPoint(0, 0);
-                return udpClient.Receive(ref ep);
+                var bytes = CommProtocol.DecryptUDP(udpClient.Receive(ref ep), CommProtocol.aes.Key, CommProtocol.aes.IV);
+                return bytes;
             }
 
             //Mutex used = new Mutex();

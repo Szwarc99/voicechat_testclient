@@ -57,6 +57,55 @@ namespace testClient
             return encrypted;
         }
 
+        public static byte[] EncryptUDP(byte[] plainAudio, byte[] Key, byte[] IV)
+        {
+            byte[] encrypted;
+            // Create a new AesManaged.    
+            using (AesManaged aes = new AesManaged())
+            {
+                aes.Padding = PaddingMode.PKCS7;
+                // Create encryptor    
+                ICryptoTransform encryptor = aes.CreateEncryptor(Key, IV);
+                // Create MemoryStream                    
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    // Create crypto stream using the CryptoStream class. This class is the key to encryption    
+                    // and encrypts and decrypts data from any given stream. In this case, we will pass a memory stream    
+                    // to encrypt    
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                    {
+                        cs.Write(plainAudio, 0, plainAudio.Length);
+                        cs.FlushFinalBlock();
+                        encrypted = ms.ToArray();
+                    }
+                }
+            }
+            // Return encrypted data    
+            return encrypted;
+        }
+        public static byte[] DecryptUDP(byte[] cipherAudio, byte[] Key, byte[] IV)
+        {
+            byte[] plainAudio;
+            // Create AesManaged    
+            using (AesManaged aes = new AesManaged())
+            {
+                aes.Padding = PaddingMode.PKCS7;
+                // Create a decryptor    
+                ICryptoTransform decryptor = aes.CreateDecryptor(Key, IV);
+                // Create the streams used for decryption.    
+                using (MemoryStream ms = new MemoryStream(cipherAudio))
+                {
+                    // Create crypto stream    
+                    using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherAudio, 0, cipherAudio.Length);
+                        cs.FlushFinalBlock();
+                        plainAudio = ms.ToArray();
+                    }
+                }
+            }
+            return plainAudio;
+        }
         static string Decrypt(byte[] cipherText, byte[] Key, byte[] IV)
         {
             string plaintext = null;
