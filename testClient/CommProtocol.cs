@@ -97,7 +97,7 @@ namespace testClient
             {
                 sw.WriteLine(msg);
                 sw.WriteLine(msg2);
-            }
+            }            
         }
         public static string read()
         {

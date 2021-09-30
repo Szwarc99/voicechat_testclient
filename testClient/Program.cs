@@ -50,15 +50,14 @@ namespace testClient
                 CommProtocol.sendKey(CommProtocol.aes);
             }
             int udpPort = new Random().Next(9100, 9200);
-            Console.WriteLine(1);
-            Console.WriteLine(CommProtocol.read());
-            CommProtocol.write("user user1");
+            Console.WriteLine(udpPort);            
+            CommProtocol.write("con user3");
             Console.WriteLine(2);
             Console.WriteLine(CommProtocol.read());
             CommProtocol.write("crm false ");
             Console.WriteLine(CommProtocol.read());
             Console.WriteLine(3);
-            CommProtocol.write("jrm 0 user1 " + udpPort);
+            CommProtocol.write("jrm 0 user3 " + udpPort);
             Console.WriteLine(4);
 
             //wav file to be cut and played
