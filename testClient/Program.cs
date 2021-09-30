@@ -52,14 +52,12 @@ namespace testClient
             int udpPort = new Random().Next(9100, 9200);
             CommProtocol.read();
             Console.WriteLine(udpPort);            
-            CommProtocol.write("con user" + udpPort);
-            Console.WriteLine(2);
+            CommProtocol.write("con user" + udpPort);            
             Console.WriteLine(CommProtocol.read());
             CommProtocol.write("crm false ");
-            Console.WriteLine(CommProtocol.read());
-            Console.WriteLine(3);
-            CommProtocol.write("jrm 0 user"+udpPort + " " + udpPort);
-            Console.WriteLine(4);
+            Console.WriteLine(CommProtocol.read());            
+            CommProtocol.write("jrm 0 user"+ udpPort + " " + udpPort);
+            
 
             //wav file to be cut and played
             var audioFilePath = "C:\\Users\\Piotrek\\Documents\\Audacity\\test2.wav";            
