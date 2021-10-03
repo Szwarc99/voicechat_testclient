@@ -38,10 +38,10 @@ namespace testClient
             TcpClient client;
             NetworkStream stream;
 
-            IPEndPoint ipLocalEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"),
+            IPEndPoint ipLocalEndPoint = new IPEndPoint(IPAddress.Parse("10.99.201.42"),
                 new Random().Next(9300, 9400));
             client = new TcpClient(ipLocalEndPoint);
-            client.Connect(IPAddress.Parse("127.0.0.1"), 8080);
+            client.Connect(IPAddress.Parse("10.99.201.42"), 8080);
             stream = client.GetStream();
             CommProtocol.init(stream);
 
@@ -57,10 +57,11 @@ namespace testClient
             CommProtocol.write("crm false ");
             Console.WriteLine(CommProtocol.read());            
             CommProtocol.write("jrm 0 user"+ udpPort + " " + udpPort);
+            Console.WriteLine(CommProtocol.read());
             
 
             //wav file to be cut and played
-            var audioFilePath = "C:\\Users\\Piotrek\\Documents\\Audacity\\test2.wav";            
+            var audioFilePath =  Directory.GetCurrentDirectory()+"\\test2.wav";            
             var source = new AudioFileReader(audioFilePath);
 
             
@@ -71,7 +72,7 @@ namespace testClient
 
 
             UdpClient udpClient = new UdpClient(udpPort);
-            IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8100);
+            IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse("10.99.201.42"), 8100);
             udpClient.Connect(serverEP);
 
             void SendUDP(byte[] bytes)
